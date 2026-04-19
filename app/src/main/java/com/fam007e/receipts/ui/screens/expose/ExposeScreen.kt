@@ -110,7 +110,7 @@ fun ExposeScreen(
                     Text("${e.needed - e.current} more receipts until you can expose them.")
                     Spacer(Modifier.height(16.dp))
                     LinearProgressIndicator(
-                        progress = e.current.toFloat() / e.needed,
+                        progress = { e.current.toFloat() / e.needed },
                         modifier = Modifier.fillMaxWidth().height(8.dp)
                     )
                 }

@@ -49,7 +49,7 @@ class LittlesViewModel @Inject constructor(
             try {
                 val receipt = receiptRepository.getReceiptById(receiptId) ?: throw Exception("Receipt not found")
                 val category = receipt.categoryId?.let { receiptRepository.getCategoryById(it) }
-                val count = if (receipt.categoryId != null) receiptRepository.getCategoryCount(receipt.personId, receipt.categoryId!!) else 0
+                val count = if (receipt.categoryId != null) receiptRepository.getCategoryCount(receipt.personId, receipt.categoryId) else 0
                 
                 val advice = coachingClient.getAdvice(
                     categoryName = category?.name ?: "Unknown category",

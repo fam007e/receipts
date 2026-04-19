@@ -25,7 +25,12 @@ fun AchievementsScreen(
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
-                title = { Text("🏆 Achievements") }
+                title = { Text("🏆 Achievements") },
+                navigationIcon = {
+                    IconButton(onClick = onBack) {
+                        Text("←")
+                    }
+                }
             )
         }
     ) { padding ->

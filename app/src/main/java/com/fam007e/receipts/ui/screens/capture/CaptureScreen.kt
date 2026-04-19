@@ -44,7 +44,6 @@ fun CaptureScreen(
     onCaptureComplete: () -> Unit,
     viewModel: CaptureViewModel = hiltViewModel()
 ) {
-    val context = LocalContext.current
     val permissionState = rememberPermissionState(Manifest.permission.CAMERA)
 
     LaunchedEffect(Unit) {

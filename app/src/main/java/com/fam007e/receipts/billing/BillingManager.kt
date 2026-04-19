@@ -15,7 +15,7 @@ import javax.inject.Singleton
 class BillingManager @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
-    fun launchPremiumFlow(activity: Activity, sku: String) {
+    fun launchPremiumFlow(activity: Activity, _sku: String) {
         // Since we are FOSS, we redirect to a donation/support page
         val donationUrl = "https://github.com/fam007e/receipts#support" 
         val intent = android.content.Intent(android.content.Intent.ACTION_VIEW)

@@ -16,7 +16,7 @@ class UnoReverseUseCase @Inject constructor(
      * Logic: If A has >= B's count on B, they can reverse with a +1 bonus.
      */
     suspend fun checkReverse(
-        targetPersonId: Long,
+        _targetPersonId: Long,
         initiatorPersonId: Long,
         incomingCount: Int
     ): UnoReverseResult {
