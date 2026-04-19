@@ -29,6 +29,13 @@ Unlike traditional apps, all features in Receipts are free. However, "Advanced" 
 - **Investigation Focus:** Limit of 5 tracked persons to ensure the app stays focused on core relationships.
 - **Expose Cooldown:** A 30-day cooldown and a 50-receipt threshold for video generation to keep "The Finale" meaningful.
 
+## 🛠️ Build Integrity & F-Droid
+
+This project is designed for **Reproducible Builds**.
+- **Deterministic:** Gradle is configured to produce bit-for-bit identical APKs regardless of the build environment.
+- **F-Droid Compatible:** No proprietary SDKs (Maps, Billing, or Analytics).
+- **Verify:** You can compare the hash of the GitHub Release APK with your local build to ensure the binary matches the source.
+
 ## 🚀 Getting Started
 
 1. Clone the repository.
