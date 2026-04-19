@@ -17,8 +17,11 @@ class PersonRepositoryImpl @Inject constructor(
     override suspend fun getPersonById(id: Long): Person? =
         personDao.getPersonById(id)?.toDomain()
 
-    override suspend fun insertPerson(person: Person): Long =
-        personDao.insertPerson(PersonEntity.fromDomain(person))
+    override suspend fun insertPerson(person: Person): Long {
+        val count = personDao.countPersons()
+        if (count >= 5) return -1
+        return personDao.insertPerson(PersonEntity.fromDomain(person))
+    }
 
     override suspend fun updatePerson(person: Person) =
         personDao.updatePerson(PersonEntity.fromDomain(person))

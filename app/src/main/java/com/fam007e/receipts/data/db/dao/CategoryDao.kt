@@ -20,4 +20,7 @@ interface CategoryDao {
 
     @Query("UPDATE categories SET totalCount = 0 WHERE id = :categoryId")
     suspend fun resetThresholdCount(categoryId: Long)
+
+    @Query("SELECT * FROM categories WHERE personId = :personId ORDER BY (SELECT COUNT(*) FROM receipts WHERE categoryId = categories.id) DESC LIMIT 1")
+    suspend fun getTopCategoryForPerson(personId: Long): CategoryEntity?
 }

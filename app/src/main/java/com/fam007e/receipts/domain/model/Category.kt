@@ -11,5 +11,7 @@ data class Category(
     val threshold: Int = 10,
     val isPositive: Boolean = false,
     val totalCount: Int = 0,
+    val tensionLevel: Int = 1,
+    val growthTag: String = "",
     val createdAt: Long = System.currentTimeMillis()
 )

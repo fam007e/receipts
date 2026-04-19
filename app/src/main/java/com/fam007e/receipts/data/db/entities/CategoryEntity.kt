@@ -13,6 +13,8 @@ data class CategoryEntity(
     val threshold: Int = 10,
     val isPositive: Boolean = false,
     val totalCount: Int = 0,
+    val tensionLevel: Int = 1,
+    val growthTag: String = "",
     val createdAt: Long = System.currentTimeMillis()
 ) {
     fun toDomain(): Category = Category(
@@ -23,6 +25,8 @@ data class CategoryEntity(
         threshold = threshold,
         isPositive = isPositive,
         totalCount = totalCount,
+        tensionLevel = tensionLevel,
+        growthTag = growthTag,
         createdAt = createdAt
     )
 
@@ -35,6 +39,8 @@ data class CategoryEntity(
             threshold = category.threshold,
             isPositive = category.isPositive,
             totalCount = category.totalCount,
+            tensionLevel = category.tensionLevel,
+            growthTag = category.growthTag,
             createdAt = category.createdAt
         )
     }

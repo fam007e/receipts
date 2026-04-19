@@ -15,6 +15,9 @@ interface AchievementDao {
     @Query("SELECT EXISTS(SELECT 1 FROM achievements WHERE id = :id AND isUnlocked = 1)")
     suspend fun isUnlocked(id: String): Boolean
 
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertAchievements(achievements: List<AchievementEntity>)
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAchievement(achievement: AchievementEntity)
 

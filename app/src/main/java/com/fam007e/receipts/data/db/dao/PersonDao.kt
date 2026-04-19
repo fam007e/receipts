@@ -6,8 +6,11 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PersonDao {
-    @Query("SELECT * FROM persons ORDER BY createdAt DESC")
+    @Query("SELECT * FROM persons ORDER BY name ASC")
     fun getAllPersons(): Flow<List<PersonEntity>>
+
+    @Query("SELECT COUNT(*) FROM persons")
+    suspend fun countPersons(): Int
 
     @Query("SELECT * FROM persons WHERE id = :id")
     suspend fun getPersonById(id: Long): PersonEntity?

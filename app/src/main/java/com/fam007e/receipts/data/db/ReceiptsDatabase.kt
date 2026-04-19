@@ -21,4 +21,5 @@ abstract class ReceiptsDatabase : RoomDatabase() {
     abstract fun categoryDao(): CategoryDao
     abstract fun receiptDao(): ReceiptDao
     abstract fun achievementDao(): AchievementDao
+    abstract fun groupDao(): GroupDao
 }

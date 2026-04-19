@@ -13,6 +13,7 @@ data class Receipt(
     val note: String = "",
     val isPositive: Boolean = false,
     val isHidden: Boolean = false,
+    val lootBoxUsed: Boolean = false,
     val timestamp: Long = System.currentTimeMillis(),
     val latitude: Double? = null,
     val longitude: Double? = null

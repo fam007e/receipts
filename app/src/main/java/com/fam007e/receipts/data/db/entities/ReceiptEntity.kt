@@ -38,6 +38,7 @@ data class ReceiptEntity(
     val note: String = "",
     val isPositive: Boolean = false,
     val isHidden: Boolean = false,
+    val lootBoxUsed: Boolean = false,
     val timestamp: Long = System.currentTimeMillis(),
     val latitude: Double? = null,
     val longitude: Double? = null
@@ -52,6 +53,7 @@ data class ReceiptEntity(
         note = note,
         isPositive = isPositive,
         isHidden = isHidden,
+        lootBoxUsed = lootBoxUsed,
         timestamp = timestamp,
         latitude = latitude,
         longitude = longitude
@@ -68,6 +70,7 @@ data class ReceiptEntity(
             note = receipt.note,
             isPositive = receipt.isPositive,
             isHidden = receipt.isHidden,
+            lootBoxUsed = receipt.lootBoxUsed,
             timestamp = receipt.timestamp,
             latitude = receipt.latitude,
             longitude = receipt.longitude
