@@ -3,7 +3,10 @@ package com.fam007e.receipts.ui.screens.settings
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.fam007e.receipts.data.preferences.UserPreferences
+import com.fam007e.receipts.worker.UpdateManager
+import com.fam007e.receipts.worker.UpdateResult
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
@@ -13,7 +16,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SettingsViewModel @Inject constructor(
-    private val userPreferences: UserPreferences
+    private val userPreferences: UserPreferences,
+    private val updateManager: UpdateManager
 ) : ViewModel() {
 
     val appMode: StateFlow<String> = userPreferences.appMode
@@ -28,6 +32,12 @@ class SettingsViewModel @Inject constructor(
 
     val aiBaseUrl: StateFlow<String> = userPreferences.aiBaseUrl
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), "https://generativelanguage.googleapis.com/v1beta/openai/")
+
+    val updateChannel: StateFlow<String> = userPreferences.updateChannel
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), "stable")
+
+    private val _updateResult = MutableStateFlow<UpdateResult?>(null)
+    val updateResult: StateFlow<UpdateResult?> = _updateResult
 
     fun setMode(mode: String) {
         viewModelScope.launch {
@@ -50,6 +60,18 @@ class SettingsViewModel @Inject constructor(
     fun setAiBaseUrl(url: String) {
         viewModelScope.launch {
             userPreferences.setAiBaseUrl(url)
+        }
+    }
+
+    fun setUpdateChannel(channel: String) {
+        viewModelScope.launch {
+            userPreferences.setUpdateChannel(channel)
+        }
+    }
+
+    fun checkForUpdates() {
+        viewModelScope.launch {
+            _updateResult.value = updateManager.checkForUpdates()
         }
     }
 }

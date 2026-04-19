@@ -23,10 +23,15 @@ class UserPreferences @Inject constructor(
         private val LAST_EXPOSE_TIME = androidx.datastore.preferences.core.longPreferencesKey("last_expose_time")
         private val DAILY_COACH_COUNT = androidx.datastore.preferences.core.intPreferencesKey("daily_coach_count")
         private val LAST_COACH_DAY = androidx.datastore.preferences.core.longPreferencesKey("last_coach_day")
+        private val UPDATE_CHANNEL = androidx.datastore.preferences.core.stringPreferencesKey("update_channel")
     }
 
     val appMode: Flow<String> = dataStore.data.map { preferences ->
         preferences[APP_MODE_KEY] ?: "receipts"
+    }
+
+    val updateChannel: Flow<String> = dataStore.data.map { preferences ->
+        preferences[UPDATE_CHANNEL] ?: "stable"
     }
 
     val isOnboarded: Flow<Boolean> = dataStore.data.map { preferences ->
@@ -76,6 +81,12 @@ class UserPreferences @Inject constructor(
     suspend fun setMode(mode: String) {
         dataStore.edit { preferences ->
             preferences[APP_MODE_KEY] = mode
+        }
+    }
+
+    suspend fun setUpdateChannel(channel: String) {
+        dataStore.edit { preferences ->
+            preferences[UPDATE_CHANNEL] = channel
         }
     }
 

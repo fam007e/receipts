@@ -9,23 +9,22 @@ import javax.inject.Singleton
 
 /**
  * FOSS No-Op Billing Manager.
- * In the F-Droid version, premium features are unlocked via the "Honor System"
- * or represent a "Donation" model.
+ * All features are free. This provides a path for supporting development via external links.
  */
 @Singleton
 class BillingManager @Inject constructor(
-    @ApplicationContext private val context: Context,
-    private val premiumRepository: com.fam007e.receipts.domain.repository.PremiumRepository
+    @ApplicationContext private val context: Context
 ) {
     fun launchPremiumFlow(activity: Activity, sku: String) {
-        val donationUrl = activity.getString(R.string.donation_url)
+        // Since we are FOSS, we redirect to a donation/support page
+        val donationUrl = "https://github.com/fam007e/receipts#support" 
         val intent = android.content.Intent(android.content.Intent.ACTION_VIEW)
         intent.data = android.net.Uri.parse(donationUrl)
         activity.startActivity(intent)
     }
 
     companion object {
-        const val SKU_PREMIUM_MONTHLY = "donation_monthly"
-        const val SKU_PREMIUM_ANNUAL = "donation_annual"
+        const val SKU_PREMIUM_MONTHLY = "support_monthly"
+        const val SKU_PREMIUM_ANNUAL = "support_annual"
     }
 }
