@@ -127,9 +127,9 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:2.9.0")
 
     // ExoPlayer / Media3
-    implementation("androidx.media3:media3-exoplayer:1.3.1")
-    implementation("androidx.media3:media3-ui:1.3.1")
-    implementation("androidx.media3:media3-session:1.3.1")
+    implementation("androidx.media3:media3-exoplayer:1.10.0")
+    implementation("androidx.media3:media3-ui:1.10.0")
+    implementation("androidx.media3:media3-session:1.10.0")
 
     // FFmpeg (Maintained Fork - Full GPL)
     implementation("com.antonkarpenko:ffmpeg-kit-full-gpl:2.1.0")
