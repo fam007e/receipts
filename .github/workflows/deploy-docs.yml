@@ -39,7 +39,7 @@ jobs:
       - name: Prepare GH-Pages Content
         run: |
           mkdir -p public
-          cp -r app/build/dokka-module/html/* public/
+          cp -r app/build/dokka-module/html/module/* public/
           touch public/.nojekyll
 
       - name: Setup Pages
