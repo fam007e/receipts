@@ -39,7 +39,10 @@ jobs:
       - name: Prepare GH-Pages Content
         run: |
           mkdir -p public
+          # Copy the actual content from the nested module folder
           cp -r app/build/dokka-module/html/module/* public/
+          # Ensure index.html from the root html folder is present as the entry point
+          cp app/build/dokka-module/html/index.html public/ || true
           touch public/.nojekyll
 
       - name: Setup Pages
