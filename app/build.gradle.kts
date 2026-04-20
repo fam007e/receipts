@@ -67,7 +67,7 @@ tasks.withType<org.jetbrains.dokka.gradle.DokkaTask>().configureEach {
     dokkaSourceSets {
         named("main") {
             moduleName.set("Receipts")
-            includes.from("../README.md", "../wiki/Home.md", "../wiki/Features.md", "../wiki/Architecture.md")
+            includes.from("../wiki/Home.md", "../wiki/Features.md", "../wiki/Architecture.md")
             samples.from("src/test/java", "src/androidTest/java")
             
             sourceLink {
