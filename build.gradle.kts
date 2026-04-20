@@ -12,9 +12,9 @@ plugins {
 
 subprojects {
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-        kotlinOptions {
-            jvmTarget = "17"
-            freeCompilerArgs += listOf("-Xjvm-default=all")
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
+            freeCompilerArgs.addAll("-Xjvm-default=all")
         }
     }
 }

@@ -34,12 +34,12 @@ jobs:
         uses: gradle/actions/setup-gradle@v6
 
       - name: Generate Dokka Documentation
-        run: ./gradlew :app:dokkaHtml
+        run: ./gradlew :app:dokkaGenerateModuleHtml
 
       - name: Prepare GH-Pages Content
         run: |
           mkdir -p public
-          cp -r app/build/dokka/html/* public/
+          cp -r app/build/dokka-module/html/* public/
           touch public/.nojekyll
 
       - name: Setup Pages
