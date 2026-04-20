@@ -34,14 +34,13 @@ jobs:
         uses: gradle/actions/setup-gradle@v6
 
       - name: Generate Dokka Documentation
-        run: ./gradlew :app:dokkaGenerateModuleHtml
+        run: ./gradlew :app:dokkaGeneratePublicationHtml
 
       - name: Prepare GH-Pages Content
         run: |
           mkdir -p public
-          # Copy everything from the nested module folder to the root of public/
-          # This ensures index.html is at the root and assets are correctly linked.
-          cp -r app/build/dokka-module/html/module/* public/
+          # Copy the complete publication output (including styles, scripts, etc.)
+          cp -r app/build/dokka/html/* public/
           touch public/.nojekyll
 
       - name: Setup Pages
