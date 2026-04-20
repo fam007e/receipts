@@ -100,13 +100,14 @@ dependencies {
     implementation("androidx.compose.material:material-icons-extended")
     debugImplementation("androidx.compose.ui:ui-tooling")
 
-    // Navigation
+    // Navigation (Higher versions require SDK 35/36)
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
     // Room
-    implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
-    ksp("androidx.room:room-compiler:2.6.1")
+    val roomVersion = "2.6.1"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
 
     // Hilt
     implementation("com.google.dagger:hilt-android:2.51")
@@ -126,10 +127,11 @@ dependencies {
     // WorkManager
     implementation("androidx.work:work-runtime-ktx:2.9.0")
 
-    // ExoPlayer / Media3
-    implementation("androidx.media3:media3-exoplayer:1.3.1")
-    implementation("androidx.media3:media3-ui:1.3.1")
-    implementation("androidx.media3:media3-session:1.3.1")
+    // ExoPlayer / Media3 (Higher versions require SDK 36)
+    val media3Version = "1.3.1"
+    implementation("androidx.media3:media3-exoplayer:$media3Version")
+    implementation("androidx.media3:media3-ui:$media3Version")
+    implementation("androidx.media3:media3-session:$media3Version")
 
     // FFmpeg (Maintained Fork - Full GPL)
     implementation("com.antonkarpenko:ffmpeg-kit-full-gpl:2.1.0")
@@ -141,7 +143,7 @@ dependencies {
     implementation("com.google.accompanist:accompanist-permissions:0.34.0")
 
     // Ktor for OpenAI-compatible REST calls (FOSS alternative to proprietary SDKs)
-    val ktorVersion = "2.3.11"
+    val ktorVersion = "2.3.12" // Latest 2.x stable compatible with Kotlin 1.9.22
     implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
     implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
@@ -154,7 +156,7 @@ dependencies {
     // OpenStreetMap (FOSS alternative to Google Maps)
     implementation("org.osmdroid:osmdroid-android:6.1.18")
 
-    // CameraX
+    // CameraX (Higher versions require SDK 36)
     val cameraVersion = "1.3.3"
     implementation("androidx.camera:camera-camera2:$cameraVersion")
     implementation("androidx.camera:camera-lifecycle:$cameraVersion")

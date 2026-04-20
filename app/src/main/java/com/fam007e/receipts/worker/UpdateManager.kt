@@ -3,6 +3,7 @@ package com.fam007e.receipts.worker
 import android.content.Context
 import com.fam007e.receipts.data.preferences.UserPreferences
 import io.ktor.client.*
+import io.ktor.client.call.body
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import kotlinx.coroutines.flow.first
@@ -43,7 +44,7 @@ class UpdateManager @Inject constructor(
             val channel = userPreferences.updateChannel.first()
             val response = httpClient.get(repoUrl)
             if (response.status.value == 200) {
-                val releases = Json { ignoreUnknownKeys = true }.decodeFromString<List<GitHubRelease>>(response.bodyAsText())
+                val releases = response.body<List<GitHubRelease>>()
                 
                 val latest = if (channel == "prerelease") {
                     // Get the absolute latest release regardless of status

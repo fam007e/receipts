@@ -2,6 +2,7 @@ package com.fam007e.receipts.ai
 
 import com.fam007e.receipts.data.preferences.UserPreferences
 import io.ktor.client.*
+import io.ktor.client.call.body
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
@@ -64,7 +65,7 @@ class GeminiCoachingClient @Inject constructor(
             }
             
             if (response.status.isSuccess()) {
-                val body = Json.decodeFromString<OpenAIResponse>(response.bodyAsText())
+                val body = response.body<OpenAIResponse>()
                 body.choices.firstOrNull()?.message?.content ?: "No response from coach."
             } else {
                 "Coach is currently unavailable (Status: ${response.status})"

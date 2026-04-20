@@ -1,5 +1,3 @@
-# Module Receipts
-
 # 📸 Receipts (Android)
 
 > "Use at your own risk."
