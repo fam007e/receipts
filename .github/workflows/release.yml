@@ -52,7 +52,7 @@ jobs:
       run: mv ${{ steps.sign_app.outputs.signedReleaseFile }} app/build/outputs/apk/release/receipts-release.apk
 
     - name: Create Github Release
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@v3
       with:
         files: |
           app/build/outputs/apk/release/receipts-release.apk
