@@ -162,7 +162,7 @@ dependencies {
     implementation("org.osmdroid:osmdroid-android:6.1.20")
 
     // CameraX
-    val cameraVersion = "1.6.0"
+    val cameraVersion = "1.6.1"
     implementation("androidx.camera:camera-camera2:$cameraVersion")
     implementation("androidx.camera:camera-lifecycle:$cameraVersion")
     implementation("androidx.camera:camera-video:$cameraVersion")
