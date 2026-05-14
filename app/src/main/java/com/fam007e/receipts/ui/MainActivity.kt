@@ -3,6 +3,7 @@ package com.fam007e.receipts.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.lifecycleScope
@@ -39,6 +40,7 @@ class MainActivity : ComponentActivity() {
     lateinit var databaseSeeder: com.fam007e.receipts.data.db.DatabaseSeeder
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         
         // Seed achievements
