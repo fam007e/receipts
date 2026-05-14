@@ -2,9 +2,9 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.plugin.compose")
     id("org.jetbrains.kotlin.plugin.serialization")
-    id("org.jetbrains.dokka")
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
+    id("org.jetbrains.dokka")
 }
 
 android {
@@ -68,18 +68,18 @@ kotlin {
     }
 }
 
-tasks.withType<org.jetbrains.dokka.gradle.DokkaTask>().configureEach {
-    dokkaSourceSets {
-        named("main") {
-            moduleName.set("Receipts")
-            includes.from("../wiki/Home.md", "../wiki/Features.md", "../wiki/Architecture.md")
-            samples.from("src/test/java", "src/androidTest/java")
-            
-            sourceLink {
-                localDirectory.set(file("src/main/java"))
-                remoteUrl.set(uri("https://github.com/fam007e/receipts/tree/main/app/src/main/java").toURL())
-                remoteLineSuffix.set("#L")
-            }
+dokka {
+    dokkaPublications.html {
+        moduleName.set("Receipts")
+    }
+    dokkaSourceSets.configureEach {
+        includes.from("../wiki/Home.md", "../wiki/Architecture.md", "../wiki/Features.md")
+        samples.from("src/test/java", "src/androidTest/java")
+        
+        sourceLink {
+            localDirectory.set(file("src/main/java"))
+            remoteUrl.set(uri("https://github.com/fam007e/receipts/tree/main/app/src/main/java"))
+            remoteLineSuffix.set("#L")
         }
     }
 }
@@ -174,4 +174,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     androidTestImplementation(platform("androidx.compose:compose-bom:2025.02.00"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+
+    // Dokka Android Plugin
+    dokkaPlugin("org.jetbrains.dokka:android-documentation-plugin:2.2.0")
 }

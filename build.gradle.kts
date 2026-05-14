@@ -7,7 +7,7 @@ plugins {
     id("com.google.dagger.hilt.android") version "2.59.2" apply false
     id("com.google.devtools.ksp") version "2.3.7" apply false
     id("org.jetbrains.kotlin.plugin.serialization") version "2.3.21" apply false
-    id("org.jetbrains.dokka") version "2.0.0"
+    id("org.jetbrains.dokka") version "2.2.0"
 }
 
 subprojects {
