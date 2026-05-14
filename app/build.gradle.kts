@@ -133,7 +133,7 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:2.10.0")
 
     // ExoPlayer / Media3
-    val media3Version = "1.10.0"
+    val media3Version = "1.10.1"
     implementation("androidx.media3:media3-exoplayer:$media3Version")
     implementation("androidx.media3:media3-ui:$media3Version")
     implementation("androidx.media3:media3-session:$media3Version")
