@@ -59,6 +59,10 @@ android {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
+        jniLibs {
+            // Silence harmless warnings for libraries without debug symbols (e.g., FFmpeg)
+            keepDebugSymbols += "**/lib*.so"
+        }
     }
 }
 
