@@ -1,21 +1,20 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
-    id("com.google.dagger.hilt.android")
-    id("com.google.devtools.ksp")
     id("org.jetbrains.kotlin.plugin.serialization")
     id("org.jetbrains.dokka")
+    id("com.google.dagger.hilt.android")
+    id("com.google.devtools.ksp")
 }
 
 android {
     namespace = "com.fam007e.receipts"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.fam007e.receipts"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0.0"
 
@@ -23,6 +22,10 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+    }
+
+    lint {
+        disable += "NullSafeMutableLiveData"
     }
 
     buildTypes {
@@ -103,7 +106,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
 
     // Navigation
-    implementation("androidx.navigation:navigation-compose:2.8.8")
+    implementation("androidx.navigation:navigation-compose:2.9.8")
 
     // Room
     val roomVersion = "2.8.4"
@@ -112,8 +115,8 @@ dependencies {
     ksp("androidx.room:room-compiler:$roomVersion")
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.55")
-    ksp("com.google.dagger:hilt-compiler:2.55")
+    implementation("com.google.dagger:hilt-android:2.59.2")
+    ksp("com.google.dagger:hilt-android-compiler:2.59.2")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
     implementation("androidx.hilt:hilt-work:1.2.0")
     ksp("androidx.hilt:hilt-compiler:1.2.0")
@@ -130,7 +133,7 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:2.10.0")
 
     // ExoPlayer / Media3
-    val media3Version = "1.5.1"
+    val media3Version = "1.10.0"
     implementation("androidx.media3:media3-exoplayer:$media3Version")
     implementation("androidx.media3:media3-ui:$media3Version")
     implementation("androidx.media3:media3-session:$media3Version")
@@ -145,7 +148,7 @@ dependencies {
     implementation("com.google.accompanist:accompanist-permissions:0.37.0")
 
     // Ktor for OpenAI-compatible REST calls (FOSS alternative to proprietary SDKs)
-    val ktorVersion = "3.1.1"
+    val ktorVersion = "3.4.2"
     implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
     implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
@@ -159,7 +162,7 @@ dependencies {
     implementation("org.osmdroid:osmdroid-android:6.1.20")
 
     // CameraX
-    val cameraVersion = "1.4.1"
+    val cameraVersion = "1.6.0"
     implementation("androidx.camera:camera-camera2:$cameraVersion")
     implementation("androidx.camera:camera-lifecycle:$cameraVersion")
     implementation("androidx.camera:camera-video:$cameraVersion")
