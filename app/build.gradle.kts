@@ -130,8 +130,8 @@ dependencies {
     implementation("io.coil-kt:coil-video:2.7.0")
 
     // Glance Widget
-    implementation("androidx.glance:glance-appwidget:1.1.0")
-    implementation("androidx.glance:glance-material3:1.1.0")
+    implementation("androidx.glance:glance-appwidget:1.1.1")
+    implementation("androidx.glance:glance-material3:1.1.1")
 
     // WorkManager
     implementation("androidx.work:work-runtime-ktx:2.10.0")
