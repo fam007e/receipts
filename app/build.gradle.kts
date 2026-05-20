@@ -160,7 +160,7 @@ dependencies {
     implementation("io.ktor:ktor-client-logging:$ktorVersion")
 
     // DataStore
-    implementation("androidx.datastore:datastore-preferences:1.1.3")
+    implementation("androidx.datastore:datastore-preferences:1.2.1")
 
     // OpenStreetMap (FOSS alternative to Google Maps)
     implementation("org.osmdroid:osmdroid-android:6.1.20")
