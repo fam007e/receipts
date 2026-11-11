@@ -146,7 +146,7 @@ dependencies {
     implementation("com.antonkarpenko:ffmpeg-kit-full-gpl:2.1.0")
 
     // Serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.8.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
 
     // Accompanist Permissions (legacy but useful for simple CameraX integration)
     implementation("com.google.accompanist:accompanist-permissions:0.37.0")
