@@ -152,7 +152,7 @@ dependencies {
     implementation("com.google.accompanist:accompanist-permissions:0.37.0")
 
     // Ktor for OpenAI-compatible REST calls (FOSS alternative to proprietary SDKs)
-    val ktorVersion = "3.5.0"
+    val ktorVersion = "3.6.1"
     implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
     implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
